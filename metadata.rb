@@ -1,8 +1,8 @@
-name             'hypervisor'
-maintainer       'YOUR_NAME'
-maintainer_email 'YOUR_EMAIL'
+name             'compute'
+maintainer       'Mevan Samaratunga'
+maintainer_email 'mevan.samaratunga@fmr.com'
 license          'All rights reserved'
-description      'Installs/Configures hypervisor'
-long_description 'Installs/Configures hypervisor'
+description      'Installs/Configures virtual compute infrastructure'
+long_description 'Installs/Configures virtual compute infrastructure and provides resources for manipulating virtual machines'
 version          '0.1.0'
 
