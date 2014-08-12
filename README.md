@@ -1,4 +1,4 @@
-# hypervisor-cookbook
+# compute-cookbook
 
 TODO: Enter the cookbook description here.
 
@@ -16,7 +16,7 @@ TODO: List your supported platforms.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['hypervisor']['bacon']</tt></td>
+    <td><tt>['compute']['bacon']</tt></td>
     <td>Boolean</td>
     <td>whether to include bacon</td>
     <td><tt>true</tt></td>
@@ -25,14 +25,14 @@ TODO: List your supported platforms.
 
 ## Usage
 
-### hypervisor::default
+### compute::default
 
-Include `hypervisor` in your node's `run_list`:
+Include `compute` in your node's `run_list`:
 
 ```json
 {
   "run_list": [
-    "recipe[hypervisor::default]"
+    "recipe[compute::default]"
   ]
 }
 ```

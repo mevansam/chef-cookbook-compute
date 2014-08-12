@@ -1,6 +1,6 @@
 # 0.1.0
 
-Initial release of hypervisor
+Initial release of compute
 
 * Enhancements
   * an enhancement
