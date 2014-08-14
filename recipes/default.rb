@@ -16,3 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+Chef::Log.info("*****************************************")
+Chef::Log.info("***** Running on OS platform: \"#{node.platform}\"")
+Chef::Log.info("***** Chef server version: \"#{node[:chef_packages][:chef][:version]}\"")
+Chef::Log.info("***** Chef environment: \"#{node.chef_environment}\"")
+Chef::Log.info("*****************************************")
