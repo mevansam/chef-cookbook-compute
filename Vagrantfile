@@ -11,7 +11,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
 
-  config.vm.hostname = "osenv-berkshelf"
+  config.vm.hostname = "compute-berkshelf"
 
   # Configure proxy
   config.proxy.http     = "http://http.proxy.fmr.com:8000"
