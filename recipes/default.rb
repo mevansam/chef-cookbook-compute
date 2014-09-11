@@ -4,6 +4,9 @@
 #
 # Copyright (c) 2014 Fidelity Investments.
 #
+# Author: Mevan Samaratunga
+# Email: mevan.samaratunga@fmr.com
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -16,9 +19,3 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-Chef::Log.info("*****************************************")
-Chef::Log.info("***** Running on OS platform: \"#{node.platform}\"")
-Chef::Log.info("***** Chef server version: \"#{node[:chef_packages][:chef][:version]}\"")
-Chef::Log.info("***** Chef environment: \"#{node.chef_environment}\"")
-Chef::Log.info("*****************************************")
