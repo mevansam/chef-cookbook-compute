@@ -38,20 +38,20 @@ class Chef
                     # Check for Xen Hypervisor
                     @provider = nil
 
-                    xe_path = shell_out("which xe")
+                    xe_path = shell("which xe")
                     if !xe_path.empty?
 
                         fqdn = run_context.node["fqdn"]
-                        pool_master_uuid = shell_out("xe pool-list params=master --minimal")
+                        pool_master_uuid = shell("xe pool-list params=master --minimal")
                         
                         if !pool_master_uuid.empty?
 
-                            hostname = shell_out("xe host-list params=hostname uuid=#{pool_master_uuid} --minimal")
+                            hostname = shell("xe host-list params=hostname uuid=#{pool_master_uuid} --minimal")
                             @provider = Chef::Provider::Vm::Xen if fqdn==hostname
                         end
                     end
 
-                    Chef::Application.fatal!("Unable to determine hypervisor type.", 999) if @provider.nil?
+                    Chef::Application.fatal!("Unable to determine underlying kernel to find an appropriate provider.", 999) if @provider.nil?
                 end
 
                 @action = :create
@@ -67,13 +67,13 @@ class Chef
                 @image = nil
                 @storage = nil
 
-                @extra_block_storage = nil
+                @extra_block_storage = [ ]
 
                 @ssh_user = nil
                 @ssh_key = nil
 
                 @network = nil
-                @target_network = nil
+                @boot_network = nil
 
                 @hostname = nil
                 @domain = nil
@@ -82,7 +82,7 @@ class Chef
                 @netmask = nil
                 @dns_servers = nil
 
-                @boot_options = nil
+                @kernel_args = nil
             end
 
             # A long description for the VM
@@ -122,12 +122,12 @@ class Chef
 
             # The name of the network to bring the VM up on. If static IP and no target_network is provided then xenstore vmdata will be used
             def network(arg=nil)
-                set_or_return(:network, arg, :kind_of => String, :required => true)
+                set_or_return(:network, arg, :kind_of => Array, :required => true)
             end
 
             # The name of the network to re-attach to after configuring the network static IP settings via SSH
-            def target_network(arg=nil)
-                set_or_return(:target_network, arg, :kind_of => String)
+            def boot_network(arg=nil)
+                set_or_return(:boot_network, arg, :kind_of => String)
             end
 
             # User to login/ssh with after first boot for vm configuration
@@ -168,6 +168,11 @@ class Chef
             # Space separated list DNS servers to configure if statc IP
             def dns_servers(arg=nil)
                 set_or_return(:dns_servers, arg, :kind_of => String)
+            end
+
+            # Set of key-value args appened to the PV-args attribute of the guest
+            def kernel_args(arg=nil)
+                set_or_return(:kernel_args, arg, :kind_of => String)
             end
         end
 
