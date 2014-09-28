@@ -55,7 +55,7 @@ class Chef
                 end
 
                 @action = :create
-                @allowed_actions = [:create, :start, :stop, :delete]
+                @allowed_actions = [:create, :start, :stop, :delete, :nothing]
 
                 @name = name
                 @description = nil
