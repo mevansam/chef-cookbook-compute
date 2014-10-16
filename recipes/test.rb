@@ -2,7 +2,7 @@
 # Cookbook Name:: network
 # Recipe:: test
 #
-# Copyright (c) 2014 Fidelity Investments.
+
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
